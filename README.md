@@ -3,7 +3,7 @@ Yao Qian, Gang Liu∗, Haojie Tang, Mengliang Xing, Rui Chang
 
 Published in: Optics and Lasers in Engineering
 
-- [parer](https://www.sciencedirect.com/science/article/abs/pii/S0143816623004542)
+- [paper](https://www.sciencedirect.com/science/article/abs/pii/S0143816623004542)
 
 ## Abstract
 In recent years, deep learning research has received significant attention in the field of infrared and visible  image fusion.  However, the issue of designing loss functions in deep learning-based image fusion methods has  not been well-addressed.  To tackle this problem, we propose a novel mechanism of utilizing traditional fusion  methods as loss functions to guide the training of deep learning models.  We incorporate the superior aspects  of two traditional methods, namely Guided Filter (GF) and Latent Low-Rank Representation (LatLRR), into  the design of the loss function, proposing a fusion method for infrared and visible images that balances both  texture and saliency, termed BTSFusion.  The proposed network is not only lightweight but also preserves the  maximum amount of valuable information in source images.  It is worth noting that the complexity of BTSFusion  primarily lies in the design of the loss function, which allows it to remain an end-to-end network, as demonstrated  by efficiency comparison experiments that highlight the excellent computational efficiency of our algorithm.  Furthermore, through subjective observations and objective comparisons, we validated the performance of the  proposed method by comparing it with twelve state-of-the-art methods on two public datasets.
@@ -12,6 +12,7 @@ In recent years, deep learning research has received significant attention in th
 
 ## Recommended Environment
 
+ - [x] python 3.7 
  - [x] pytorch 1.12.1 
  - [x] scipy 1.2.1   
  - [x] numpy 1.11.3
