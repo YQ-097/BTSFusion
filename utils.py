@@ -7,7 +7,7 @@ import torch
 from PIL import Image
 from torch.autograd import Variable
 from args_fusion import args
-from scipy.misc import imread, imsave, imresize
+#from scipy.misc import imread, imsave, imresize
 import matplotlib as mpl
 import cv2
 import torch.nn.functional as F
@@ -101,7 +101,7 @@ def load_dataset(image_path, BATCH_SIZE, num_imgs=None):
 
 def get_image(path, height=256, width=256, mode='L'):
     if mode == 'L':
-        image = imread(path, mode=mode)
+        image = Image.open(path).convert('L')
     elif mode == 'RGB':
         image = Image.open(path).convert('RGB')
     elif mode == 'YCbCr':
@@ -110,9 +110,10 @@ def get_image(path, height=256, width=256, mode='L'):
 
 
     if height is not None and width is not None:
-        image = imresize(image, [height, width], interp='nearest')
-    return image
+        image = image.resize((width, height), resample=Image.NEAREST)
+    image = np.array(image)
 
+    return image
 
 def load_img(filepath):
     img = Image.open(filepath).convert('YCbCr')
@@ -179,7 +180,9 @@ def colormap():
 def save_images(path, data):
     if data.shape[2] == 1:
         data = data.reshape([data.shape[0], data.shape[1]])
-    imsave(path, data)
+    img = transforms.ToPILImage()(np.uint8(data))
+
+    img.save(path)
 
 
 def PixelIntensityDecision(latlrr_image,ir_image,vi_image):
